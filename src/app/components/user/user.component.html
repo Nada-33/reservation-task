@@ -1,0 +1,22 @@
+<div class="bg-light p-4 rounded-3">
+    <div class="row">
+        <div class="col-lg-2 col-md-4 ">
+            <div class="position-relative">
+                <div class="rounded-pill">
+                    <img [src]="imageUrl || '../../../assets/images/p5.jpeg'"
+                        class="img-fluid rounded-pill h-100 w-100 " alt="userimg" >
+                </div>
+                <input type="file" (change)="onFileSelected($event)" id="fileInput" style="display: none;">
+                <div class="position-absolute top-0 start-0">
+                    <button (click)="openFileInput()" class="btn btn-primary btn-sm rounded-circle btnUpload ">
+                        <i class="bi bi-image myI"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-8">
+            <h6>{{ 'user.username' | translate }}</h6>
+            <input type="text" class="form-control myinput rounded-3 p-3" placeholder="{{ 'user.name' | translate }}" [(ngModel)]="username" (blur)="setUsername()">
+        </div>
+    </div>
+</div>

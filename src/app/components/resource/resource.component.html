@@ -1,0 +1,144 @@
+<div class="bg-light p-4 rounded-3">
+    <h6>{{ 'product.avilable_product' | translate }}</h6>
+    <div class="form-group">
+        <div class="input-group bg-white p-0 rounded-3 border ">
+            <input type="number" class="form-control disable-hover rounded-end-2 myinput" (click)="toggleDropdown()"
+                min="1" max="12" name="selectedMonth" [(ngModel)]="selectedMonth" />
+            <div class="input-group-append">
+                <button class="btn mybtn dropdown-toggle px-5" type="button" (click)="toggleDropdown()">
+                    {{ 'product.month' | translate }}
+                </button>
+                <div class="dropdown-menu m-auto text-center" [ngClass]="{ show: isDropdownOpen }">
+                    <a *ngFor="let month of months; let i = index" class="dropdown-item" (click)="selectMonth(month)">
+                        {{ month }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <h6>{{ 'product.product_time' | translate }}</h6>
+            <div class="form-check form-check-inline col-md-4  m-0 p-0">
+                <div class="row">
+                    <div class="justify-content-center">
+                        <div class="col-md-2">
+                            <input class="form-check-input" type="radio" id="radio1" name="radioGroup1"
+                                [value]="'Option 1'" [(ngModel)]="selectedOption" />
+                        </div>
+                        <div class="col-md-10">
+                            <label class="form-check-label" for="radio1">
+                                <i class="bi bi-box fs-5 custom-icon-color"></i>
+                                {{ 'product.radio_label_option1' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-check form-check-inline  col-md-4 m-0 p-0">
+                <div class="row">
+                    <div class="justify-content-center">
+                        <div class="col-md-2">
+                            <input class="form-check-input" type="radio" id="radio2" name="radioGroup1"
+                                [value]="'Option 2'" [(ngModel)]="fixedTime" />
+                        </div>
+                        <div class="col-md-10">
+                            <label class="form-check-label" for="radio2">
+                                <i class="bi bi-clock custom-icon-color fs-5"></i>
+                                {{ 'product.radio_label_option2' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class=" col-md-4  " *ngIf="fixedTime === 'Option 2'">
+                <div class="row">
+                    <div class="justify-content-center input-group myinput rounded-3 pt-2 "
+                        (mouseleave)="selecteMints()">
+                        <div class="col-md-2  input-group-prepend ">
+                            <button class="btn  btn-sm btn-primary" type="button" (click)="incrementValue()">+</button>
+                        </div>
+                        <div class="col-md-3 ">
+                            <input type="number" class="form-control myinput disable-hover " min="0" placeholder="30"
+                                [(ngModel)]="quantity" name="quantity" />
+                        </div>
+                        <div class="col-md-4  ">
+                            <p class="text-center pt-1">{{ 'product.mint' | translate }}</p>
+                        </div>
+                        <div class="col-md-2   input-group-append ">
+                            <button class="btn btn-sm btn-primary" type="button" (click)="decrementValue()">-</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group row mt-2 ">
+
+        <h6>{{ 'product.multi_reserve' | translate }}</h6>
+        
+
+        <div class="form-check form-check-inline  col-md-3 m-0 p-0">
+            <div class="row">
+                <div class="justify-content-center">
+                    <div class="col-md-1">
+                        <input class="form-check-input" type="radio" id="radio3" name="radioGroup2" [value]="'Option 3'"
+                            [(ngModel)]="selectedMultiOption" />
+                    </div>
+                    <div class="col-md-11">
+                        <label class="form-check-label" for="radio3">
+                            <i class="bi bi-person fs-5"></i>
+                            {{ 'product.radio_label_option3' | translate }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="form-check form-check-inline  col-md-5 m-0 p-0">
+            <div class="row ">
+                <div class="justify-content-center">
+                    <div class="col-md-1 ">
+                        <input class="form-check-input m-0  " type="radio" id="radio4" name="radioGroup2"
+                        [value]="'Option 4'" [(ngModel)]="selectedMultiOption" />
+                    </div>
+                    <div class="col-md-11">
+                        <label class="form-check-label    " for="radio4">
+                            <i class="bi bi-people fs-6"></i>
+                            {{ 'product.radio_label_option4' | translate }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+     
+        <div class="col-md-4 " *ngIf="selectedMultiOption === 'Option 4'" (mouseleave)="selecteDates()">
+            <div class="row">
+                <div class="justify-content-center input-group myinput rounded-3 pt-2 " (mouseleave)="selecteMints()">
+                    <div class="col-md-3  input-group-prepend ps-3">
+                        <h6 class="mb-0 mt-1 " type="button" (click)="incrementMultiValue()">^</h6>
+                        <h6 class="mt-0 " type="button" (click)="decrementMultiValue()">v</h6>
+                    </div>
+                    <div class="col-md-3 ">
+
+                        <input type="number" class="form-control myinput disable-hover" min="0"
+                            [(ngModel)]="multiQuantity" name="multiQuantity" />
+                    </div>
+                    <div class="col-md-3 ">
+                        <p class=" m-auto">{{ 'product.date' | translate }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

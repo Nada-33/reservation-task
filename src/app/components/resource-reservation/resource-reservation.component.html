@@ -1,0 +1,26 @@
+<div class="bg-light p-4 mt-4 rounded-3">
+    <div class="row">
+        <div class="col-md-3">
+            <h6>{{ 'product_type.choose-product_time' | translate }}</h6>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check form-check-inline m-0 p-0">
+                <label class="form-check-label" for="radio1">
+                    {{ 'product_type.day' | translate }}
+                </label>
+                <input class="form-check-input" type="radio" id="radio1" name="productTime"
+                    [(ngModel)]="selectedProductTime" (ngModelChange)="onProductTimeChange()" [value]="'ond day'" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-check form-check-inline m-0 p-0">
+                <label class="form-check-label" for="radio2">
+                    {{ 'product_type.days' | translate }}
+                </label>
+                <input class="form-check-input" type="radio" id="radio2" name="productTime"
+                    [(ngModel)]="selectedProductTime" (ngModelChange)="onProductTimeChange()"
+                    [value]="'more than one day'" />
+            </div>
+        </div>
+    </div>
+</div>

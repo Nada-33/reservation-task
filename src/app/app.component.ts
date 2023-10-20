@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { TextDirectionService } from './services/text-direction.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'taskpj';
+  isRtlLanguage: boolean = true;
+
+  constructor(public textDirectionService: TextDirectionService) {}
+  ngOnInit() {
+    const initialLanguage = this.textDirectionService.isRtl ? 'ar' : 'en';
+    this.textDirectionService.setLanguage(initialLanguage);
+  }
 }

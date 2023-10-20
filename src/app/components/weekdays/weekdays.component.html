@@ -1,0 +1,176 @@
+<div class="bg-light p-4 rounded-3 my-4" id="section">
+    <div class="row">
+        <div class="col-md-6">
+            <h6>
+                {{"dates.choose_date_time"|translate}}
+            </h6>
+            <p>
+                {{"dates.pargraph"|translate}}
+            </p>
+        </div>
+        <div class="col-md-4 me-auto ">
+            <div class="row border mx-2 rounded-3 p-2">
+                <div class="justify-content-center">
+
+                    <button class="col-md-6 btn mybtn ">
+                        {{"dates.btn1"|translate}}
+                    </button>
+                    <button class="col-md-6 btn mybtn">
+                        {{"dates.btn2"|translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" *ngFor="let day of daysOfWeek; let i = index">
+            <div class="row">
+                <div class="col-md-1 ps-5 mt-3 text-center">
+                    <div class="form-check form-switch text-end ">
+                        <input class="form-check-input input-lg mt-4 " style="transform: scale(1.7);" type="checkbox"
+                            [(ngModel)]="isDayRowOpen[i]" id="flexSwitchCheckChecked{{ i }}" />
+                    </div>
+                </div>
+                <div class="col-md-1 mt-3 ps-5 text-center">
+                    <div>
+                        <label class="form-check-label mt-3 fs-4" for="flexSwitchCheckChecked">
+                            {{ 'dayNames.' + day | translate }}
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9" *ngIf="isDayRowOpen[i]">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <h6>{{ "dates.start" | translate }}</h6>
+                                <div class="input-group bg-white p-0 rounded-3 border border-secondary">
+                                    <!-- Input for selecting start time -->
+                                    <input type="number" class="form-control border-0 disable-hover rounded-end-2"
+                                        [(ngModel)]="selectedStartTimes[i]" name="selectedStartTime" />
+                                    <div class="input-group-append">
+                                        <div class="btn-group">
+                                            <!-- Button inside the input -->
+                                            <button class="btn " type="button" (click)="toggleDropdown('start',i)">
+                                                <i class="bi bi-clock custom-icon-color fs-5"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Dropdown Content -->
+                                    <div class="dropdown-menu m-auto text-center"
+                                        [ngClass]="{ show: isStartDropdownOpen[i]}">
+                                        <div class="row">
+                                            <div class="col container1">
+                                                <div class="container2">
+
+                                                    <!-- Hours Select -->
+                                                    <h6>{{ "dates.hour" | translate }}</h6>
+                                                    <select class="form-select text-center"
+                                                        [(ngModel)]="selectedStartHours[i]" name="selectedStartHour"
+                                                        size="7">
+                                                        <option *ngFor="let hour of hours" [value]="hour">{{ hour }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <!-- Minutes Select -->
+                                                <h6>{{ "dates.mint" | translate }}</h6>
+                                                <select class="form-select text-center"
+                                                    [(ngModel)]="selectedStartMinutes[i]" name="selectedStartMinute"
+                                                    size="7">
+                                                    <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="d-flex justify-content-around mt-2">
+                                                <!-- Save Time button -->
+                                                <button class="btn btn-primary" (click)="saveStartSelectedDate(selectedStartHours[i], selectedStartMinutes[i],i)">
+                                                    {{ "dates.save" | translate }}
+                                                </button>
+                                                <!-- Now button -->
+                                                <button class="btn btn-primary" (click)="getCurrentTime(i,'start')">
+                                                    {{ "dates.now" | translate }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 p-0 m-3  myfont">
+                            <p class="mt-2 ">_ _</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <h6>{{ "dates.end" | translate }}</h6>
+                                <div class="input-group bg-white p-0 rounded-3 border border-secondary">
+                                    <!-- Input for selecting end time -->
+                                    <input type="number" class="form-control disable-hover border-0 rounded-end-2"
+                                        [(ngModel)]="selectedEndTimes[i]" name="selectedEndTime" />
+                                    <div class="input-group-append">
+                                        <div class="btn-group">
+                                            <!-- Button inside the input -->
+                                            <button class="btn " type="button" (click)="toggleDropdown('end',i)">
+                                                <i class="bi bi-clock custom-icon-color fs-5"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Dropdown Content -->
+                                    <div class="dropdown-menu m-auto text-center"
+                                        [ngClass]="{ show: isEndDropdownOpen[i]}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <!-- Hours Select -->
+                                                <h6>{{ "dates.hour" | translate }}</h6>
+                                                <select class="form-select text-center"
+                                                    [(ngModel)]="selectedEndHours[i]" name="selectedEndHour" size="7">
+                                                    <option *ngFor="let hour of hours" [value]="hour">{{ hour }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <h6>{{ "dates.mint" | translate }}</h6>
+                                                <!-- Minutes Select -->
+                                                <select class="form-select text-center"
+                                                    [(ngModel)]="selectedEndMinutes[i]" name="selectedEndMinute"
+                                                    size="7">
+                                                    <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="d-flex justify-content-around mt-2 ">
+                                                <button class="btn btn-primary " (click)="saveEndSelectedDate(selectedEndHours[i], selectedEndMinutes[i],i)">
+                                                    {{ "dates.save" | translate }}
+                                                </button>
+                                                <button class="btn btn-primary " (click)="getCurrentTime(i,'end')">
+                                                    {{ "dates.now" | translate }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1  m-auto text-center ">
+                            <div>
+                                <button class="btn btncolor rounded-circle mt-3" [id]="'addRowButton_' + i">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-1  m-auto text-center ">
+                            <div>
+                                <button class="btn btncolor rounded-2 mt-3" [id]="'addRowButton_' + i">
+                                    <i class="bi bi-clipboard"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

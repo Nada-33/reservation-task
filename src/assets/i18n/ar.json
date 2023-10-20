@@ -1,0 +1,51 @@
+{
+    "header":{
+      "addprod":"إضافه مورد",
+      "active":"مفعله",
+      "save":"حفظ التغيرات",
+      "delete":"حذف المورد"
+       },
+    "user": {
+      "username": "اسم الموارد",
+      "name":"الاسم"
+    },
+    "product": {
+      "month": "شهر",
+      "avilable_product": "المورد متاح الى",
+      "product_time": "وقت المورد",
+      "radio_label_option1": "وقت الخدمه",
+      "radio_label_option2": "الوقت الثابت",
+      "date": "الموعد",
+      "multi_reserve": "الحجز المتعدد",
+      "radio_label_option3": "حجز واحد فقط",
+      "radio_label_option4": "حجز اكثر من شخص لنفس الموعد",
+      "mint": "دقيقه"
+    },
+    "product_type": {
+      "choose-product_time": "اختر نوع الموارد",
+      "day": "حجز خلال يوم",
+      "days": " ('اكتر من يوم')حجز مده "
+    },
+    "dates": {
+      "choose_date_time": "حدد مواعيد العمل للمورد",
+      "pargraph": "تكوين اعدادات الاسبوع الخاص بك هناز ما عليك سوى تحريك ",
+      "btn1": "إعدادات متقدمه",
+      "btn2": "إعدادات تقليديه",
+      "start": "وقت البدء",
+      "end": "وقت الانتهاء",
+      "choose_time": "اختر الوقت",
+      "mint": "الدقائق",
+      "hour": "الساعه",
+      "now": "الوقت الحالى",
+      "save": "حفظ الوقت"
+    },
+    "dayNames.Monday": "الاثنين",
+    "dayNames.Tuesday": "الثلاثاء",
+    "dayNames.Wednesday": "الأربعاء",
+    "dayNames.Thursday": "الخميس",
+    "dayNames.Friday": "الجمعة",
+    "dayNames.Saturday": "السبت",
+    "dayNames.Sunday": "الأحد"
+  
+    
+  }

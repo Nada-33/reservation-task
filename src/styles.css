@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #dfe1e3;
+}
+h6 {
+    color: #a7a7b9;
+}
+.myinput {
+    background-color: #f4eeee;
+    border-radius: 0%;
+}
+.mybtn:hover{
+    background-color: #ECF1F6;
+}

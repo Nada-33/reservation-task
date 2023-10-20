@@ -1,0 +1,50 @@
+{
+    "header": {
+      "addprod": "add new product",
+      "active": "active",
+      "save": "save changes",
+      "delete": "delete product"
+    },
+    "user": {
+      "username": "user name",
+      "name":"name"
+  
+    },
+    "product": {
+      "month": "month",
+      "avilable_product": "product avilable untill",
+      "product_time": "product time",
+      "radio_label_option1": " time",
+      "radio_label_option2": "fixed time ",
+      "date": "date",
+      "multi_reserve": " multi reserve",
+      "radio_label_option3": "reserve only one  ",
+      "radio_label_option4": "  multi reserve in same time",
+      "mint": "minute"
+    },
+    "product_type": {
+      "choose-product_time": "choose product type",
+      "day": "reserve for a day",
+      "days": "reserve (more than a day)"
+    },
+    "dates": {
+      "choose_date_time": "Select the supplier's working hours",
+      "pargraph": "Configure your week's settings by simply moving them.",
+      "btn1": "Advanced Settings",
+      "btn2": "Traditional Settings",
+      "start": "start time",
+      "end": "end time",
+      "choose_time": "Choose time",
+      "mint": "minutes",
+      "hour": "hour",
+      "now": "current time",
+      "save": "save time"
+    },
+    "dayNames.Monday": "Monday",
+    "dayNames.Tuesday": "Tuesday",
+    "dayNames.Wednesday": "Wednesday",
+    "dayNames.Thursday": "Thursday",
+    "dayNames.Friday": "Friday",
+    "dayNames.Saturday": "Saturday",
+    "dayNames.Sunday": "Sunday"
+  }

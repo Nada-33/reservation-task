@@ -38,32 +38,32 @@ export class WeekdaysComponent {
       this.isEndDropdownOpen[i] = true;
     }
   }
-  saveStartSelectedDate(selectedStartHours: number, selectedStartMinutes: number,dayIndex:number) {
+  saveStartSelectedDate(selectedStartHours: number, selectedStartMinutes: number,dayIndex:string) {
     // Calculate the total minutes
     const totalMinutes = (selectedStartHours * 60) + selectedStartMinutes;
     
     // Do something with the totalMinutes, like saving it to your data model or sending it to an API.
     
-   this.stateService.addItem(`start: ${selectedStartHours} hours and ${selectedStartMinutes} minutes and day ${dayIndex}`);
+   this.stateService.addItem(`start: ${selectedStartHours} hours and ${selectedStartMinutes} minutes and day is ${dayIndex}`);
 }
-  saveEndSelectedDate(selectedEndHours: number, selectedEndMinutes: number,dayIndex:number) {
+  saveEndSelectedDate(selectedEndHours: number, selectedEndMinutes: number,dayIndex:string) {
     // Calculate the total minutes
     const totalMinutes = (selectedEndHours * 60) + selectedEndMinutes;
     
     // Do something with the totalMinutes, like saving it to your data model or sending it to an API.
     
-    this.stateService.addItem(`End: ${selectedEndHours} hours and ${selectedEndMinutes} minutes and day ${dayIndex}` );
+    this.stateService.addItem(`End: ${selectedEndHours} hours and ${selectedEndMinutes} minutes and day is ${dayIndex}` );
 }
 
-getCurrentTime(dayIndex:number, timeType: string) {
+getCurrentTime(dayIndex:string, timeType: string) {
   const now = new Date();
   const currentHours = now.getHours();
   const currentMinutes = now.getMinutes();
   if (timeType === 'start') {
-    this.stateService.addItem(`Current start time: ${currentHours} hours and ${currentMinutes} minutes and day ${dayIndex}`);
+    this.stateService.addItem(`Current start time: ${currentHours} hours and ${currentMinutes} minutes and day is ${dayIndex}`);
 
 } else if (timeType === 'end') {
-  this.stateService.addItem(`Current end time: ${currentHours} hours and ${currentMinutes} minutes and day ${dayIndex}`);
+  this.stateService.addItem(`Current end time: ${currentHours} hours and ${currentMinutes} minutes and day is ${dayIndex}`);
 }
   }
 }
